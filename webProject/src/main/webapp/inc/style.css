@@ -1,0 +1,53 @@
+@charset "utf-8";
+/*초기화*/
+body, ul, li{
+	padding:0; 
+	margin:0; 
+	list-style-type:none;
+}
+
+a:link, a:visited, a:hover{
+	text-decoration:none;
+	color:yellow;
+}
+.container, .menu{
+	width:1000px;
+	margin:0 auto;
+}
+
+/*헤더*/
+header{
+	background:skyblue;
+	color:#fff;
+}
+
+/*푸터*/
+footer{
+	background:#ddd;
+	padding:30px 0;
+	text-align:center;
+	margin-top:50px;
+}
+
+.logo{
+	text-align:center;
+	font-size:3em;
+	padding:50px 0;
+}
+.menu>ul{
+	overflow:auto;
+}
+.menu li{
+	float:left;
+	text-align:center;
+	font-size:1.2em;
+	width:150px;
+	height:40px;
+	line-height:40px;
+}
+
+
+.d1{
+	background:gray;
+	padding:30px 0;
+}
