@@ -21,7 +21,7 @@ public class MapController {
 	public ModelAndView mapshow() {
 		ModelAndView mav = new ModelAndView();
 		
-		List<MapDTO> list = service.mapAllSelect();
+		//List<MapDTO> list = service.mapAllSelect();
 		
 		mav.setViewName("map/googlemap");
 		return mav;

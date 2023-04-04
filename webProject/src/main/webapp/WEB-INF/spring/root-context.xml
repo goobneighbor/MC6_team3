@@ -20,6 +20,6 @@
 		<property name="mapperLocations" value="classpath:/mapper/*Mapper.xml"></property>
 	</bean>	
 	
-	<mybatis-spring:scan base-package="com.multi.campus.dao"/> <!-- dao패키지 mybatis-scan설정 -->
+	<mybatis-spring:scan base-package="com.project.simeee.dao"/> <!-- dao패키지 mybatis-scan설정 -->
 		
 </beans>

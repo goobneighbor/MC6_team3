@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <div class="container">
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCQqHwm75xj0zOtfhA5ZgyOlFF7_en12OY&callback=initMap"></script>
@@ -28,9 +29,9 @@
 </style>
 <body>
 <div id='gMap'>
-	<div id='roadView'></div> <!-- ¿ä±â¿¡ Áöµµ³ª¿Í -->
+	<div id='roadView'></div> <!-- ìš”ê¸°ì— ì§€ë„ë‚˜ì™€ -->
 	<div id='search'>
-		<input type='text' id='address' name='address' value='Àá½Ç¿ª'/>
+		<input type='text' id='address' name='address' value='ì ì‹¤ì—­'/>
 		<input type='button' id='geoSubmit' name='geoSubmit' value='geoCode' onclick='geocodeAddress()'/>
 	</div>
 	<div id='searchList'></div>	
@@ -38,7 +39,7 @@
 <script>
 	var latitude = 37.5729503;
 	var longitude = 126.9793578;
-	var map; //map, geoCoderÀ» searchAddress¿¡¼­µµ »ç¿ëÇØ¾ßÇØ¼­ ¹Û¿¡¼­ ¼±¾ğ
+	var map; //map, geoCoderì„ searchAddressì—ì„œë„ ì‚¬ìš©í•´ì•¼í•´ì„œ ë°–ì—ì„œ ì„ ì–¸
 	var geoCoder;
 	function initMap(){
 		
@@ -47,28 +48,28 @@
 				center : myCenter,
 				zoom : 12,
 				mapTypeId : google.maps.MapTypeId.ROADMAP
-		}				//±¸±ÛÁöµµ°´Ã¼
+		}				//êµ¬ê¸€ì§€ë„ê°ì²´
 		map = new google.maps.Map(document.getElementById('roadView'), option);
 		
-		//Áö¿ÀÄÚµå °´Ã¼ ¸¸µé±â
+		//ì§€ì˜¤ì½”ë“œ ê°ì²´ ë§Œë“¤ê¸°
 		geoCoder = new google.maps.Geocoder();
 		
 	}
-	//ÀÔ·Â¹ŞÀº °Ë»ö¾î·Î ÁöµµÁ¤º¸ Ç¥½ÃÇÏ±â
+	//ì…ë ¥ë°›ì€ ê²€ìƒ‰ì–´ë¡œ ì§€ë„ì •ë³´ í‘œì‹œí•˜ê¸°
 	function searchAddress(addr){
-		//alert('°Ë»ö¾î À§Ä¡·Î ÀÌµ¿ÇÔ.'+addr); //È®ÀÎ
+		//alert('ê²€ìƒ‰ì–´ ìœ„ì¹˜ë¡œ ì´ë™í•¨.'+addr); //í™•ì¸
 		
-		//Àü´Ş¹ŞÀº °Ë»ö¾î¸¦ ÀÌ¿ëÇÏ¿© ÁÖ¼ÒÁ¤º¸Ã£±â
-		//¸¸µç º¯¼ö.		
-		geoCoder.geocode({'address':addr} //°Ë»ö¾î
-						,function(results, status){ //results : Áöµµ Ã£Àº Á¤º¸, status : ¼º°ø¿©ºÎ(OK¸é ÁÖ¼Ò°¡ ÀÖ´Ù), ZERO_RESULTS
+		//ì „ë‹¬ë°›ì€ ê²€ìƒ‰ì–´ë¥¼ ì´ìš©í•˜ì—¬ ì£¼ì†Œì •ë³´ì°¾ê¸°
+		//ë§Œë“  ë³€ìˆ˜.		
+		geoCoder.geocode({'address':addr} //ê²€ìƒ‰ì–´
+						,function(results, status){ //results : ì§€ë„ ì°¾ì€ ì •ë³´, status : ì„±ê³µì—¬ë¶€(OKë©´ ì£¼ì†Œê°€ ìˆë‹¤), ZERO_RESULTS
 							console.log(status, results);
-							if(status=='OK'){//ÁÖ¼ÒÃ£À½
-								//ÁÖ¼Ò·Î À§Ä¡ ÀÌµ¿
-								//À§µµ, °æµµ			//¼ø¼­´ë·Î(Á¡Á¡ ¾ÈÀ¸·Î µé¾î°¡´Â) f12´­·¯¼­ consoleÀÇ resultsº¸±â ¸Ç¸¶Áö¸· °ıÈ£´Â ÇÔ¼ö(f)¶ó´Â!
-								var la = results[0]['geometry']['location']['lat'](); //jsonÇ¥±â¹ı1
+							if(status=='OK'){//ì£¼ì†Œì°¾ìŒ
+								//ì£¼ì†Œë¡œ ìœ„ì¹˜ ì´ë™
+								//ìœ„ë„, ê²½ë„			//ìˆœì„œëŒ€ë¡œ(ì ì  ì•ˆìœ¼ë¡œ ë“¤ì–´ê°€ëŠ”) f12ëˆŒëŸ¬ì„œ consoleì˜ resultsë³´ê¸° ë§¨ë§ˆì§€ë§‰ ê´„í˜¸ëŠ” í•¨ìˆ˜(f)ë¼ëŠ”!
+								var la = results[0]['geometry']['location']['lat'](); //jsoní‘œê¸°ë²•1
 								var lng = results[0]['geometry']['location']['lng']();
-								//ÁÖ¼Ò(Ãß°¡·Î È¸»ö¹Ú½º¿¡ Á¤º¸ ³Ö±â·Î ÇßÀ¸´Ï±ñ)
+								//ì£¼ì†Œ(ì¶”ê°€ë¡œ íšŒìƒ‰ë°•ìŠ¤ì— ì •ë³´ ë„£ê¸°ë¡œ í–ˆìœ¼ë‹ˆê¹)
 								//var searchAddr = results[0]['formatted_address'];
 								//var searchAddr;
 								//if(results)
@@ -77,57 +78,57 @@
 									searchAddr += " "+results[0].address_components[1].long_name;
 									searchAddr += " "+results[0].address_components[0].long_name;
 								
-								//Ã£Àº À§Ä¡·Î ÁöµµÀÇ ¼¾ÅÍ À§Ä¡ º¯°æÇÏ±â
-								map.setCenter(results[0].geometry.location); //jsonÇ¥±â¹ı2 location¾È¿¡ À§µµ°æµµÁ¤º¸ ´ÙÀÖÀ¸´Ï±ñ location±îÁö
+								//ì°¾ì€ ìœ„ì¹˜ë¡œ ì§€ë„ì˜ ì„¼í„° ìœ„ì¹˜ ë³€ê²½í•˜ê¸°
+								map.setCenter(results[0].geometry.location); //jsoní‘œê¸°ë²•2 locationì•ˆì— ìœ„ë„ê²½ë„ì •ë³´ ë‹¤ìˆìœ¼ë‹ˆê¹ locationê¹Œì§€
 								
-								//¸¶Ä¿¸¸µé±â
+								//ë§ˆì»¤ë§Œë“¤ê¸°
 								var marker = new google.maps.Marker({
 									map:map,
 									icon:'gmap_pin.png',
-									title: searchAddr.substring(5), //¸»Ç³¼±µµ¿ò¸» ****.substring()ÀÇ¹ÌÃ£¾Æº¸±â
-									position: results[0].geometry.location //¸¶Ä¿À§Ä¡
+									title: searchAddr.substring(5), //ë§í’ì„ ë„ì›€ë§ ****.substring()ì˜ë¯¸ì°¾ì•„ë³´ê¸°
+									position: results[0].geometry.location //ë§ˆì»¤ìœ„ì¹˜
 								});
 								
-								//È¸»ö ¹Ú½º¾È¿¡ ¶Ç div¿¡¼­³Ö¾î¾ß
-								var mapInfo = "<div class='c'>À§µµ : "+ la;
-								mapInfo += "<br/>°æµµ : "+ lng;
-								mapInfo += "<br/>ÁÖ¼Ò : "+ searchAddr+"</div>";
-																					//´©ÀûµÇ°Ô
+								//íšŒìƒ‰ ë°•ìŠ¤ì•ˆì— ë˜ divì—ì„œë„£ì–´ì•¼
+								var mapInfo = "<div class='c'>ìœ„ë„ : "+ la;
+								mapInfo += "<br/>ê²½ë„ : "+ lng;
+								mapInfo += "<br/>ì£¼ì†Œ : "+ searchAddr+"</div>";
+																					//ëˆ„ì ë˜ê²Œ
 								document.getElementById('searchList').innerHTML = document.getElementById('searchList').innerHTML + mapInfo;
 								
-								//¸¶Ä¿¸¦ ¸¶¿ì½º ¿À¹öÇÏ¸é ´ëÈ­»óÀÚ º¸¿©ÁÖ±â/¹ş¾î³ª¸é¾ø¾îÁö±â(ÀÌº¥Æ®Ã³¸®)	
-								//			´ëÈ­»óÀÚ ¸¸µé¾îÁÖ´Â ÇÔ¼ö
+								//ë§ˆì»¤ë¥¼ ë§ˆìš°ìŠ¤ ì˜¤ë²„í•˜ë©´ ëŒ€í™”ìƒì ë³´ì—¬ì£¼ê¸°/ë²—ì–´ë‚˜ë©´ì—†ì–´ì§€ê¸°(ì´ë²¤íŠ¸ì²˜ë¦¬)	
+								//			ëŒ€í™”ìƒì ë§Œë“¤ì–´ì£¼ëŠ” í•¨ìˆ˜
 								var popWin = new google.maps.InfoWindow({content: mapInfo})
-								//	¸¶¿ì½º ¿À¹ö¿Í ¾Æ¿ô ÀÌº¥Æ®Ã³¸®ÇÏ±â  ÀÌº¥Æ®´ë»ó									Áöµµº¯¼ö	´ë»óµÇ´Â > ¸¶Ä¿À§Ä¡¿¡ ÆË¾÷¶ç¿ö¶ó
+								//	ë§ˆìš°ìŠ¤ ì˜¤ë²„ì™€ ì•„ì›ƒ ì´ë²¤íŠ¸ì²˜ë¦¬í•˜ê¸°  ì´ë²¤íŠ¸ëŒ€ìƒ									ì§€ë„ë³€ìˆ˜	ëŒ€ìƒë˜ëŠ” > ë§ˆì»¤ìœ„ì¹˜ì— íŒì—…ë„ì›Œë¼
 								google.maps.event.addListener(marker, 'mouseover', function(){popWin.open(map, marker)});
 								google.maps.event.addListener(marker, 'mouseout', function(){popWin.open(map, marker)});
-								////////////////////////////////mouseoutÈ®ÀÎ
-							}else{ //ÁÖ¼Ò ¸ø Ã£À½	
+								////////////////////////////////mouseoutí™•ì¸
+							}else{ //ì£¼ì†Œ ëª» ì°¾ìŒ	
 							}
-						}//Äİ¹éÇÔ¼ö
+						}//ì½œë°±í•¨ìˆ˜
 						
-		);//geocodeÇÔ¼ö
+		);//geocodeí•¨ìˆ˜
 		
 	}
-	//°Ë»ö¾î ÀÔ·Â ÈÄ Å¬¸¯½Ã ¿ä±â·Î ÀÌµ¿ 35Çà
+	//ê²€ìƒ‰ì–´ ì…ë ¥ í›„ í´ë¦­ì‹œ ìš”ê¸°ë¡œ ì´ë™ 35í–‰
 	function geocodeAddress(){
-		var addr = document.getElementById('address').value; //addressÀÇ °ªÀ» ±¸ÇØ addr¿¡ ³Ö¾î¶ó
+		var addr = document.getElementById('address').value; //addressì˜ ê°’ì„ êµ¬í•´ addrì— ë„£ì–´ë¼
 		if(addr==''){
-			alert('Áö¿ª¸í ¶Ç´Â °Ç¹°¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä');
+			alert('ì§€ì—­ëª… ë˜ëŠ” ê±´ë¬¼ëª…ì„ ì…ë ¥í•˜ì„¸ìš”');
 		}else{
 			searchAddress(addr);
 		}
 	}
 	
-	$(function(){
-		$("#geoSubmit").submit(function(){
-			var url = ""
-			
-			$.ajax({
-				url : 
-			})
-		}
-	})
+/* 		$(function(){
+			$("#geoSubmit").submit(function(){
+				var url = ""
+				
+				$.ajax({
+					url : 
+				})
+			}
+		}) */
 
 </script>
 </div>
