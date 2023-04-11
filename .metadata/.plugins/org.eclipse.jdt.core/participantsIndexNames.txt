@@ -1,9 +1,0 @@
-INDEX VERSION 1.131
-C:\MC6_team3\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3704100765.index
-\githubTest\src\main\java
-C:\MC6_team3\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1846679553.index
-\webProject\src\main\java
-C:\MC6_team3\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\996830097.index
-\commitTest\src\main\java
-C:\MC6_team3\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\37567320.index
-\webProject\src\main\java
